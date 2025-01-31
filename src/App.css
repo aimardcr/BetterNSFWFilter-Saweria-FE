@@ -1,0 +1,194 @@
+/* Base overlay and container */
+.media-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  z-index: 9999;
+}
+
+.media-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Media player base styles */
+.media-player {
+  width: 100%;
+  height: calc(100vh - 150px); /* Leave space for donation info */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* YouTube specific styles */
+.youtube-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.youtube-player {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: calc(1.77778 * (100vh - 150px)) !important; /* 16:9 ratio */
+  max-height: 100% !important;
+}
+
+/* TikTok specific styles */
+.tiktok-embed {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: calc(0.5625 * (100vh - 150px)) !important; /* 9:16 ratio */
+  max-height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Instagram specific styles */
+.instagram-video {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: calc(0.5625 * (100vh - 150px)) !important; /* 9:16 ratio */
+  max-height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  object-fit: contain;
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 100%;
+  height: 5px;
+  background: rgba(0, 0, 255, 0.2);
+  margin-top: -5px;
+  position: relative;
+  z-index: 2;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #0066ff;
+  transition: width 0.1s linear;
+}
+
+/* Donation info styles */
+.donation-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.donation-content {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  outline: 2px solid rgba(0, 0, 0, 1);
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 1);
+  border-radius: 4px;
+}
+
+.donation-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.donation-content .message {
+  font-size: clamp(1rem, calc(2rem - 0.1rem * var(--length)), 1.5rem);
+  margin-top: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  word-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+  white-space: pre-wrap;
+}
+
+/* NSFW message styles */
+.nsfw-message {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ff0000;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+/* Audio player styles */
+.audio-player {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+.audio-visualizer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  animation: pulse 2s infinite;
+}
+
+.audio-icon {
+  font-size: 5rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
